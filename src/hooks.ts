@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import { useEffect, useRef, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { parse, stringify } from "./utils";
-import type { AllowedParams } from "./types";
+import { usePathname, useRouter, useSearchParams } from "next/navigation.js";
+import { parse, stringify } from "./utils.js";
+import type { AllowedParams } from "./types.js";
 
 export const useRouteQuery = <T extends AllowedParams>(): [
   T,

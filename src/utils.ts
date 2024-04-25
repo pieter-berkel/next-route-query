@@ -1,6 +1,6 @@
 import qs from "qs";
 
-import type { AllowedParams, SearchParams } from "./types";
+import type { AllowedParams, SearchParams } from "./types.js";
 
 export const parseServerSearchParams = <T extends AllowedParams>(
   searchParams?: SearchParams
@@ -31,6 +31,7 @@ export const parse = (...args: Parameters<typeof qs.parse>) => {
         case "bool":
           return value === "true";
         case "date":
+          if (typeof value !== "string") return decoded;
           return new Date(value);
         default:
           return decoded;

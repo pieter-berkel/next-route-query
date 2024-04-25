@@ -1,8 +1,8 @@
-export interface SearchParams {
+export type SearchParams = {
   [key: string]: string | string[] | undefined;
-}
+};
 
-export interface AllowedParams {
+export type AllowedParams = {
   [key: string]:
     | string
     | number
@@ -11,4 +11,4 @@ export interface AllowedParams {
     | Date
     | AllowedParams
     | (string | number | boolean | undefined | Date | AllowedParams)[];
-}
+};
