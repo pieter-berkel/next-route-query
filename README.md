@@ -7,7 +7,7 @@ Route Query is a utility library for handling URL query parameters in NextJS app
 To install Route Query and its dependencies, run the following command in your terminal:
 
 ```bash
-npm install next-route-query;
+npm install next-route-query
 ```
 
 ## Usage
