@@ -1,6 +1,6 @@
 # Route Query
 
-Route Query is a utility library for handling URL query parameters in NextJS applications. It supports NextJS 13 or higher and requires the `qs` package. It preserves types of string, number, boolean, and date during the query string parsing and stringifying process.
+Next Route Query is a utility library for handling URL query parameters in NextJS applications. It supports NextJS 13 or higher. It preserves types of string, number, boolean, and date during the query string parsing and stringifying process.
 
 ## Installation
 
@@ -17,7 +17,7 @@ npm install next-route-query
 To use Route Query on the server side, you can import `parseServerSearchParams` and `SearchParams` from the library. Here's an example:
 
 ```tsx
-import { parseServerSearchParams, SearchParams } from "route-query";
+import { parseServerSearchParams, SearchParams } from "next-route-query";
 
 function Page({ searchParams }: { searchParams?: SearchParams }) {
   const params = parseServerSearchParams<{ search: string; sizes: number[] }>(
@@ -33,7 +33,7 @@ function Page({ searchParams }: { searchParams?: SearchParams }) {
 On the client side, you can use the `useRouteQuery` hook from Route Query. Here's how you can use it:
 
 ```tsx
-import { useRouteQuery } from "route-query";
+import { useRouteQuery } from "next-route-query";
 
 function Page() {
   const [params, setParams] = useRouteQuery<{
@@ -50,7 +50,7 @@ function Page() {
 To create a query string from an object, you can use the `stringify` function from Route Query:
 
 ```tsx
-import { stringify } from "route-query";
+import { stringify } from "next-route-query";
 
 const query = stringify({
   search: "hello",
@@ -65,7 +65,7 @@ const query = stringify({
 To parse a query string into an object, you can use the `parse` function from Route Query:
 
 ```tsx
-import { parse } from "route-query";
+import { parse } from "next-route-query";
 
 const params = parse("?search=hello&sizes[0]=nr:1&sizes[1]=nr:2&sizes[2]=nr:3");
 

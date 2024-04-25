@@ -1,23 +1,20 @@
 "use client";
 
+import * as React from "react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { parse, stringify } from "./utils";
-import type { AllowedParams, DeepPartial, Prettify } from "./types";
-
-type Params<T> = Prettify<DeepPartial<T>>;
+import type { AllowedParams } from "./types";
 
 export const useRouteQuery = <T extends AllowedParams>(): [
-  Params<T>,
-  React.Dispatch<React.SetStateAction<Params<T>>>
+  T,
+  React.Dispatch<React.SetStateAction<T>>
 ] => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
-  const [params, setParams] = useState<Params<T>>(
-    parse(searchParams.toString()) as Params<T>
-  );
+  const [params, setParams] = useState<T>(parse(searchParams.toString()) as T);
 
   const updated = useRef(true);
   useEffect(() => {
@@ -26,7 +23,7 @@ export const useRouteQuery = <T extends AllowedParams>(): [
       return;
     }
 
-    setParams(parse(searchParams.toString()) as Params<T>);
+    setParams(parse(searchParams.toString()) as T);
   }, [searchParams]);
 
   useEffect(() => {

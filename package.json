@@ -1,6 +1,6 @@
 {
   "name": "next-route-query",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Route Query is a utility library for handling URL query parameters in NextJS applications. It supports NextJS 13 or higher and requires the `qs` package. It preserves types of string, number, boolean, and date during the query string parsing and stringifying process.",
   "main": "index.ts",
   "repository": {
@@ -13,7 +13,9 @@
     "qs": "^6.12.1"
   },
   "devDependencies": {
-    "@types/qs": "^6.9.15"
+    "@types/qs": "^6.9.15",
+    "next": "^14.2.3",
+    "react": "^18.2.0"
   },
   "peerDependencies": {
     "next": ">=13.0.0",

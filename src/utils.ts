@@ -1,22 +1,15 @@
 import qs from "qs";
 
-import type {
-  AllowedParams,
-  DeepPartial,
-  Prettify,
-  SearchParams,
-} from "./types";
-
-type Params<T> = Prettify<DeepPartial<T>>;
+import type { AllowedParams, SearchParams } from "./types";
 
 export const parseServerSearchParams = <T extends AllowedParams>(
   searchParams?: SearchParams
 ) => {
-  if (!searchParams) return {} as Params<T>;
+  if (!searchParams) return {} as T;
   const string = Object.entries(searchParams)
     .map(([key, value]) => `${key}=${value}`)
     .join("&");
-  return parse(string) as Params<T>;
+  return parse(string) as T;
 };
 
 export const parse = (...args: Parameters<typeof qs.parse>) => {
